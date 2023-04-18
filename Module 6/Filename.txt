@@ -1,0 +1,155 @@
+//1)Write a overview on the topics you covered in module 1.
+//Intro to c, compilation process, variables , keywords, operators and their precedence
+
+//2) The distance between two cities(in km.) is input. Write a program to convert and print this distance in meters, feet, inches and centimeters.
+include <stdio.h>
+
+void kmTomtr(int km)
+
+{
+printf("\n Given Distance in km :%d \n",km);
+printf("Distance in meters : %d\n", km*1000);
+printf("Distance in centimeter :%d\n ",km *1000* 100);
+printf("Distance in feet : %.2f\n",km *3280.84);
+printf("Distance in inches : %.2f\n",km *39370.08);
+}
+
+int main()
+{
+int km;
+printf("Enter the distance in Km : ");
+scanf("%d",&km);
+kmTomtr(km);
+return 0;
+}
+
+//3) Write a program to find whether give number is odd or even and positive or negative integer, and absolute value of a number.
+
+#include <stdio.h>
+void checkNumber(int num)
+{
+if(num%2==0)
+printf("\nNumber is even\n");
+else
+printf("Number is odd\n");
+if(num>0){
+printf("Number is positive \n");
+printf("Absolute value of the number is : %d",num);
+}
+else if(num<0)
+{
+printf("Number is negative\n");
+printf("Absolute value of number is : %d", -1*num);
+}
+else
+printf("Number is neither negative nor positive \n");
+}
+int main()
+{
+int num;
+printf("Enter the number : ");
+scanf("%d",&num);
+checkNumber(num);
+return 0;
+}
+
+
+//4)Write a program to determine whether the input is leap year or not. (NOTE: Use %(modulus) operators)
+
+#include <stdio.h>
+void checkLeap(int year)
+{
+if(year % 100==0)
+{
+if(year % 400==0)
+printf("Leap Year\n");
+else
+printf("Not a leap year\n");
+}
+else
+{
+if(year % 4==0)
+printf("Leap year \n");
+else
+printf("Not a leap year\n");
+}
+
+}
+int main()
+{
+int year;
+printf("Enter a year : \n");
+scanf("%d",&year);
+checkLeap(year);
+return 0;
+}
+
+//5) Write a program to enter numbers till the user wants. At the end, as a output it should display the count of positive, negative and zeros entered.
+
+#include <stdio.h>
+int main()
+{
+int check=1;
+int num;
+int cpos=0,cneg=0, czero=0;
+do
+{
+printf("Enter number : \n");
+scanf("%d, %d ",&num);
+if(num>0)
+cpos++;
+else if(num<0)
+cneg++;
+else
+czero++;
+printf("Enter 1 to continue 0 to exit : \t");
+scanf("%d",&check);
+}while(check);
+printf("positive count :%d\n",cpos);
+printf("negative count :%d\n",cneg);
+printf("zero count :%d",czero);
+}
+
+//6)Write a program to print all the ASCII values and their equivalent characters using while while loop. (ASCII values vary from 0 to 255)
+#include <stdio.h>
+void printAscii()
+{
+int i=0;
+printf("ASCII values from 0 to 255\n");
+while(i<=255)
+{
+printf("%d - %c\n", i,i);
+i++;
+}
+}
+int main()
+{
+printAscii();
+return 0;
+}
+
+7)Write a program to convert integer input to binary and its hexadecimal equivalent.
+
+#include <stdio.h>
+void intToOthers(int num, int base)
+{
+int rem = num%base;
+if(num==0)
+return;
+intToOthers(num/base, base);
+if(rem < 10)
+printf("%d", rem);
+else
+printf("%c", rem-10+'A' );
+}
+int main()
+{
+int num;
+printf("Enter an integer\n");
+
+scanf("%d",&num);
+intToOthers(num,2);
+printf("\n");
+intToOthers(num,8);printf("\n");
+intToOthers(num,16);
+}
